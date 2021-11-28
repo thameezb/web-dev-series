@@ -1,1 +1,1 @@
-Slides are availabel [here](slides.pdf).
+Slides are available [here](slides.pdf).
