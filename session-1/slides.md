@@ -56,8 +56,7 @@ Zezhe Huang
 *Introduction to what you'd better know; prepare yourself before something more practical comes in*
 
 - Git
-- API
-- Showcase of architecture
+- Web Application Architecture
 - Basics of Frontend
 - Basics of Backend
 
@@ -99,7 +98,7 @@ Then choose your working directory `cd MY_DIR`
 git clone git@github.com:GDSC-KTH/web-dev-series.git
 cd web-dev-series
 git switch session1/playground
-git log
+git log --oneline
 ```
 
 <!-- _header: "Get Started with Git" -->
@@ -117,13 +116,124 @@ git log
 
 ### Final results
 
-![bg right:40% 80%](tree.png)
+![width:500px](tree.png)
+![height:100px](git-log.png)
 
 
 <!-- _header: "Get Started with Git" -->
 
 ---
 
+## **Architecture**
+
+![width:900px](arch.png)
+
+<!-- _footer: "https://litslink.com/blog/web-application-architecture" -->
+
+---
+
+### Fine-grained
+
+![width:900px](components.png)
+
+<!-- _header: "Architecture" -->
+<!-- _footer: "https://litslink.com/blog/web-application-architecture" -->
+
+---
+
+## **Create a Static Page**
+
+What you probably already know
+
+```html
+<html>
+  <body>
+    <div style="height:100%;display:flex;">
+      <h1 style="margin:auto;text-align:center;width:100%;" id="content">
+      </h1>
+    </div>
+    <script>
+        document.getElementById("content").innerHTML="Hello, World!";
+    </script>
+  </body>
+</html>
+```
+
+---
+
+Check out the [bootstrap example](https://getbootstrap.com/docs/5.1/examples/sign-in/), and redesign it
+
+<!-- _header: "Create a Static Page" -->
+
+
+---
+
+## **Create a Simple Server**
+
+**How Frontend and Backend Communicate**
+
+Mostly we use **HTTP APIs**
+
+**How a Persistent Server Handles API Requests**
+You might hear about
+- Django
+- Flask
+- FastAPI
+
+Here we use **Flask** as an example.
+
+---
+
+1. `pip install flask flask-cors`
+
+2. Save as `app.py`:
+
+```python
+from flask import Flask
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
+
+@app.route("/")
+def hello_world():
+    return {"name": "Tommy"}
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+3. Run it by `python app.py`
+
+<!-- _header: "Create a Simple Server" -->
+
+---
+
+### **Request API from Frontend**
+
+1. Inject the script for HTTP requests
+  `<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+`
+1. Request API and replace html content by response
+   ```javascript
+   axios.get('http://127.0.0.1:5000')
+    .then(function (response) {
+        const name = response.data.name;
+        document.getElementById("content").innerHTML = `Hello, ${name}!`;
+        console.log(response);
+    });
+   ```
+
+---
+
+## **More to Think About**
+
+- Data storage
+- Security
+- Hosting
+- 
+
+---
 
 ### Useful Links
 
