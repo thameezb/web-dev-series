@@ -108,7 +108,7 @@ git log --oneline
 **Clean up commits history!**
 
 1. Check out commits of branches `session1/playground1` and `session1/playground2`
-2. Organmize commits in order and eliminate DUMMY commits and TRASH files
+2. Organnize commits in order and eliminate DUMMY commits and TRASH files
 
 <!-- _header: "Get Started with Git" -->
 
