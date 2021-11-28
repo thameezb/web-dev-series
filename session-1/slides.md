@@ -163,6 +163,8 @@ What you probably already know
 
 Check out the [bootstrap example](https://getbootstrap.com/docs/5.1/examples/sign-in/), and redesign it
 
+![height:400px](example.png)
+
 <!-- _header: "Create a Static Page" -->
 
 
@@ -195,9 +197,9 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-@app.route("/")
-def hello_world():
-    return {"name": "Tommy"}
+@app.route("/<name>")
+def hello_world(name):
+    return {"name": name, "length": len(name)}
 
 if __name__ == "__main__":
     app.run(debug=True)
@@ -216,13 +218,23 @@ if __name__ == "__main__":
 `
 1. Request API and replace html content by response
    ```javascript
-   axios.get('http://127.0.0.1:5000')
+   axios.get(`http://127.0.0.1:5000/${name}`)
     .then(function (response) {
-        const name = response.data.name;
-        document.getElementById("content").innerHTML = `Hello, ${name}!`;
-        console.log(response);
+        const len = response.data.length;
+        document.getElementById("content1")
+            .innerHTML = `Hello, ${name}!`;
+        document.getElementById("content2")
+            .innerHTML = `The length of your name is: ${len}.`
     });
    ```
+
+<!-- _header: "Create a Simple Server" -->
+
+---
+
+![height:600px](example2.png)
+
+<!-- _header: "Create a Simple Server" -->
 
 ---
 
@@ -231,7 +243,17 @@ if __name__ == "__main__":
 - Data storage
 - Security
 - Hosting
-- 
+- ...
+
+---
+
+## **Prepare for Next Session**
+
+- Install PostgreSQL (involved in installation of django)
+  - Better in docker
+- Install Python libraries
+  - [django](https://docs.djangoproject.com/en/3.2/intro/install/)
+  - [django-rest-framework](https://www.django-rest-framework.org/#installation)
 
 ---
 
