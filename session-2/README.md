@@ -60,7 +60,7 @@ Slides are available [here](slides.pdf).
 
 ### Delete a blog
 
-- URL: `/blogs/<id>`
+- URL: `/blogs/<id>/`
 - Method: `DELETE`
 - Headers:
   - `Content-Type:application/json`
@@ -69,7 +69,7 @@ Slides are available [here](slides.pdf).
 
 ### Change a blog
 
-- URL: `/blogs/<id>`
+- URL: `/blogs/<id>/`
 - Method: `PUT`
 - Headers:
   - `Content-Type:application/json`

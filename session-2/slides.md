@@ -23,7 +23,7 @@ Zezhe Huang
 - Build up APIs for a Blog app
   - Create, edit, view and delete blog data
 - Access control
-  - Only the administrator can access the APIs
+  - Only the author can access his/her blogs
 
 ---
 
@@ -82,10 +82,14 @@ Zezhe Huang
 ## **Authorization**
 
 - Basic authentication
-- OAuth 1.0
+  -  Base64 encoding of ID and password joined by a single colon `:`
 - OAuth 2.0
 - **Json Web Token**
+  - Less requests
+  - Stateless
 - ...
+
+<!-- _footer: "https://en.wikipedia.org/wiki/Basic_access_authentication" -->
 
 ---
 
@@ -247,6 +251,17 @@ https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started
 
 Install Django REST framework:
 `pip install djangorestframework`
+
+<br>
+
+Add `'rest_framework'` to your `INSTALLED_APPS` setting.
+
+```python
+INSTALLED_APPS = [
+    ...
+    'rest_framework',
+]
+```
 
 ---
 
