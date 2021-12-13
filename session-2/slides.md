@@ -7,7 +7,7 @@ backgroundImage: url('https://marp.app/assets/hero-background.svg')
 
 # **Web Development**
 
-Session 1 - Backend
+Session 2 - Backend
 
 *[BY GDSC@KTH](https://gdsc.community.dev/kth-royal-institute-of-technology/)*
 
