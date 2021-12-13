@@ -4,6 +4,7 @@ from .models import Blog
 
 class BlogSerializer(serializers.ModelSerializer):
     author = serializers.PrimaryKeyRelatedField(read_only=True)
+    author_username = serializers.CharField(source='author.username', read_only=True)
     class Meta:
         model = Blog
         fields = '__all__'
