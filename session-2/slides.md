@@ -124,8 +124,6 @@ REpresentational State Transfer （REST) architectural constraints:
 pip install django
 django-admin startproject myblog
 cd myblog
-python manage.py migrate
-python manage.py createsuperuser
 ```
 
 Now have a look at the settings! What we'll use today:
@@ -154,7 +152,7 @@ CREATE DATABASE myblog;
 
 ### Project Settings
 
-- Install database engine for django: `pip install psycopg2-binary`
+Install database engine: `pip install psycopg2-binary`
 
 ```python
 DATABASES = {
@@ -168,6 +166,8 @@ DATABASES = {
     }
 }
 ```
+
+Migrate the database by `python manage.py migrate` and create a user: `python manage.py createsuperuser`
 
 
 <!-- _header: "Setup of Django Project" -->
@@ -190,7 +190,7 @@ INSTALLED_APPS = [
 
 <!-- _header: "Blog Model" -->
 
-### Model CLass
+### Model Class
 
 Define the model in `models.py`
 
