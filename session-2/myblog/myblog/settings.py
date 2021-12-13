@@ -9,7 +9,9 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
+import django_heroku
 import dj_database_url
+from decouple import config
 from datetime import timedelta
 from pathlib import Path
 
@@ -85,14 +87,15 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'myblog',
-        'USER': 'postgres',
-        'PASSWORD': 'mypassword',
-        'HOST': 'localhost',
-        'PORT': 5432,
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'myblog',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'mypassword',
+    #     'HOST': 'localhost',
+    #     'PORT': 5432,
+    # }
+    'default': dj_database_url.config(default=config('postgres://qscqshpcgxngsq:ae9603f1ef2f27235515babd00271d979fa2f86b1748fa23066ce0775eb04ca0@ec2-23-21-229-200.compute-1.amazonaws.com:5432/deoo3i8shf2uf2'))
 }
 
 db_from_env = dj_database_url.config(conn_max_age=600)
