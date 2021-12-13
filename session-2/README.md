@@ -28,7 +28,7 @@ Slides are available [here](slides.pdf).
 - URL: `/api/token/`
 - Method: `POST`
 - Headers:
-  - `Content-Type:application/json`
+  - `Content-Type: application/json`
 - Json keys:
   - `username`
   - `password`
@@ -45,8 +45,8 @@ Slides are available [here](slides.pdf).
 - URL: `/blogs/`
 - Method: `POST`
 - Headers:
-  - `Content-Type:application/json`
-  - `Authorization Bearer JWT`
+  - `Content-Type: application/json`
+  - `Authorization: Bearer <JWT>`
 - Json keys:
   - `title`
   - `content`
@@ -63,8 +63,8 @@ Slides are available [here](slides.pdf).
 - URL: `/blogs/<id>/`
 - Method: `DELETE`
 - Headers:
-  - `Content-Type:application/json`
-  - `Authorization Bearer JWT`
+  - `Content-Type: application/json`
+  - `Authorization: Bearer <JWT>`
 
 
 ### Change a blog
@@ -72,8 +72,8 @@ Slides are available [here](slides.pdf).
 - URL: `/blogs/<id>/`
 - Method: `PUT`
 - Headers:
-  - `Content-Type:application/json`
-  - `Authorization Bearer JWT`
+  - `Content-Type: application/json`
+  - `Authorization: Bearer <JWT>`
 - Json keys: (both are required)
   - `title`
   - `content`
@@ -84,8 +84,8 @@ Slides are available [here](slides.pdf).
 - URL: `/blogs/<id>/`
 - Method: `PATCH`
 - Headers:
-  - `Content-Type:application/json`
-  - `Authorization Bearer JWT`
+  - `Content-Type: application/json`
+  - `Authorization: Bearer <JWT>`
 - Json key(s):
   - `title`
   - `content`
