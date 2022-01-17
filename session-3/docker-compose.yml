@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+      
+  backend:
+    build: ./backend
+    ports:
+      - 8000:8000
+    environment:
+      - POSTGRES_NAME=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - DJANGO_SUPERUSER_PASSWORD=admin
+      - DJANGO_SUPERUSER_USERNAME=admin
+      - DJANGO_SUPERUSER_EMAIL=test@test.com
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend: 
+    image: node
+    working_dir: /frontend
+    command: yarn start
+    volumes: 
+    - ./frontend:/frontend
+    ports: 
+      - 3000:3000
+    depends_on:
+      - backend
