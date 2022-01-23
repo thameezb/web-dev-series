@@ -1,10 +1,12 @@
 import Navbar from './components/NavBar';
+import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import useToken from './components/useToken';
-import { BrowserRouter as Router} from 'react-router-dom'; 
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'; 
 import React from 'react';
 
 function App() {
+
   const { token, setToken } = useToken();
 
   if(!token) {
@@ -15,7 +17,13 @@ function App() {
     <Router>
       <div className="App">
         <Navbar setToken={setToken}/>
+        <div className="content">
+          <Routes>
+            <Route exact path="/"     element={<Home />} />
+          </Routes>
+        </div>
       </div>
+    </Router>
   );
 }
 
